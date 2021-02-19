@@ -3,3 +3,5 @@
 
 from .abc import Command
 from .blank import BlankCommand
+from .book_details import BookDetailsCommand
+from .quit import QuitCommand

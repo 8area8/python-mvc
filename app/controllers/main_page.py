@@ -1,8 +1,9 @@
 """Handle the main page."""
 
-from .abc import Controller
-from app.commands import BlankCommand
+from app.commands import BlankCommand, QuitCommand, BookDetailsCommand
 from app.models.book import Book
+
+from .abc import Controller
 
 
 class MainPageController(Controller):
@@ -10,19 +11,26 @@ class MainPageController(Controller):
 
     def __init__(self):
         """Init."""
-        self.view = MainPageView()
+        self.view = MainPageView(self.commands)
 
-        self.commands = {}
-        for index, book in enumerate(Book.books, start=1):
-            self.commands[f"l-{index}"] = BookDetailsCommand(book=book)
+        self.commands = [QuitCommand, BookDetailsCommand]
 
     def display(self):
         """Display the main page."""
-        self.view.display()
+        books = Book.books
+        self.view.display(books=books)
 
     def get_command(self):
         """Get the command."""
         choice = input()
+
+        if not choice:
+            return BlankCommand()
+
+        if not choice.isdigit() or int(choice) not in self.choices:
+            return WrongCommand()
+
+        choice = int(choice)
 
         if choice.startswith("l-"):
             book_id = int(choice.replace("l-", ""))
@@ -32,5 +40,3 @@ class MainPageController(Controller):
 
         if choice == "3":
             return QuitCommand()
-
-        return BlankCommand()
