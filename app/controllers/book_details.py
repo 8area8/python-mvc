@@ -1,6 +1,7 @@
 """Book details controller."""
 
 from app.models import Book
+from app.views import BookDetailsView
 
 from .abc import Controller
 
@@ -11,4 +12,4 @@ class BookDetailsController(Controller):
     def __init__(self, book: Book):
         """Init."""
         self.book = book
-        self.view = BookDetailsView()
+        self.view = BookDetailsView(self.commands)

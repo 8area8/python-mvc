@@ -41,3 +41,13 @@ class Book:
             book.id = id
             return book
         return None
+
+    @classmethod
+    def list(cls):
+        """List the books."""
+        books = []
+        for id, book in cls.books.items():
+            book = Book(name=book["name"])
+            book.id = id
+            books.append(book)
+        return books
