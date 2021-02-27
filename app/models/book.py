@@ -31,11 +31,12 @@ class Book:
 
         Create the book if the ID is None, or update it.
         """
+        to_dict = {key: value for key, value in vars(self).items() if key != "id"}
         if not self.id:
             new_id = self.last_id + 1
-            self.books[new_id] = {"name": self.name}
+            self.books[new_id] = to_dict
         else:
-            self.books[self.id] = {"name": self.name}
+            self.books[self.id] = to_dict
 
     @classmethod
     def get(cls, id: int) -> Optional["Book"]:
