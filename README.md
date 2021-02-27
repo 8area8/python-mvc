@@ -1,1 +1,27 @@
 # MVC architecture
+
+Example of MVC architecture, which uses the Strategy and the Command pattern. The model is rather simple, and handles data recovery.
+
+> **Note:** a more complex architecture, it may be necessary to decouple the data recovery from the model.
+
+## Install
+
+This application uses the python `3.X` version.
+
+```bash
+python3 -m venv .venv # or py -3 -m venv .venv on windows
+. .venv/bin/activate # or . .venv/Scripts/activate on windows
+pip install -r requirements.txt
+```
+
+> **Note:** the virtual environment is only useful for development purposes.
+
+## Usage
+
+```bash
+python3 main.py # or py -3 main.py on windows
+```
+
+## Explanations
+
+`coming soon...`
