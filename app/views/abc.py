@@ -50,7 +50,7 @@ class View:
             print()
             for message in self.messages:
                 print(message)
-            self.messages = []
+        self.messages = []
 
     def display_body(*args, **kwargs):
         """Display the body."""

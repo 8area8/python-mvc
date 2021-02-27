@@ -6,11 +6,16 @@ from typing import Optional
 class Book:
     """Handle the books."""
 
-    books = {1: {"name": "Le seigneur des anneaux"}}
+    books = {
+        1: {"name": "Le seigneur des anneaux", "price": 12},
+        2: {"name": "L'oiseau d'amérique", "price": 8},
+        3: {"name": "Bambie", "price": 10},
+    }
 
-    def __init__(self, name: str):
+    def __init__(self, name: str, price: int):
         """Init."""
         self.name = name
+        self.price = price
         self.id: Optional[int] = None
 
     @property
@@ -37,7 +42,7 @@ class Book:
         """Get a book from the given ID."""
         db_book = cls.books.get(id)
         if db_book:
-            book = Book(name=db_book["name"])
+            book = Book(**db_book)  # type: ignore
             book.id = id
             return book
         return None
@@ -46,12 +51,12 @@ class Book:
     def list(cls):
         """List the books."""
         books = []
-        for id, book in cls.books.items():
-            book = Book(name=book["name"])
+        for id, db_book in cls.books.items():
+            book = Book(**db_book)
             book.id = id
             books.append(book)
         return books
 
     def __str__(self):
         """Return the book details."""
-        return f"id: {self.id}\nname: {self.name}"
+        return f"id: {self.id}\nname: {self.name}\nprice: {self.price}"

@@ -14,7 +14,7 @@ class BookDetailsController(Controller):
         """Init."""
         super().__init__()
         self.book = book
-        self.commands = [MainPageCommand] + self.commands
+        self.commands.append(MainPageCommand)
         self.view = BookDetailsView(self.commands)
 
     def display(self):

@@ -8,7 +8,7 @@ class QuitCommand(Command):
 
     key = "quit"
     readable_key = key
-    lang_en = "qui the program."
+    lang_en = "quit the program."
 
     def execute(self, context):
         """Quit the program."""

@@ -13,7 +13,7 @@ class MainPageController(Controller):
     def __init__(self):
         """Init."""
         super().__init__()
-        self.commands = [BookDetailsCommand] + self.commands
+        self.commands.append(BookDetailsCommand)
         self.view = MainPageView(self.commands)
 
     def display(self):
