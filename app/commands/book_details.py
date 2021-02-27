@@ -1,6 +1,6 @@
 """Book details command."""
 
-from app.controllers import BookDetailsController
+from app import controllers
 from app.models import Book
 
 from .abc import Command
@@ -9,8 +9,9 @@ from .abc import Command
 class BookDetailsCommand(Command):
     """Handle the book details command."""
 
-    key = "b-"
-    readable_key = "b-<number>"
+    key = "book-"
+    readable_key = "book-<number>"
+    lang_en = "display the book details."
 
     def __init__(self, choice: str):
         """Init."""
@@ -24,4 +25,5 @@ class BookDetailsCommand(Command):
 
     def execute(self, context):
         """Go to the book details."""
-        context.controller = BookDetailsController(book=self.book)  # type: ignore
+        controller = controllers.BookDetailsController
+        context.controller = controller(book=self.book)  # type: ignore

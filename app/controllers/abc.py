@@ -11,7 +11,7 @@ class Controller(ABC):
 
     def __init__(self, *args, **kwargs):
         """Init."""
-        self.commands = [BlankCommand, WrongCommand, QuitCommand]
+        self.commands = [QuitCommand, BlankCommand]
         self.view: View = View(self.commands)
 
     def display(self):
@@ -24,4 +24,6 @@ class Controller(ABC):
 
         for Command in self.commands:
             if choice in Command.get_choices():
-                return Command(choice=choice)
+                return Command(choice)
+
+        return WrongCommand(choice)

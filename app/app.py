@@ -20,6 +20,7 @@ class Application:
 
     def run(self):
         """Run the application."""
-        self.controller.display()
-        command = self.controller.get_command()
-        command.execute(context=self)
+        while self.running:
+            self.controller.display()
+            command = self.controller.get_command()
+            command.execute(context=self)

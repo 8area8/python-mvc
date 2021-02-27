@@ -12,10 +12,11 @@ class MainPageController(Controller):
 
     def __init__(self):
         """Init."""
-        self.commands.append(BookDetailsCommand)
+        super().__init__()
+        self.commands = [BookDetailsCommand] + self.commands
         self.view = MainPageView(self.commands)
 
     def display(self):
         """Display the main page."""
-        books = Book.books
+        books = Book.list()
         self.view.display(books=books)

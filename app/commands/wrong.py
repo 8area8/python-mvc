@@ -10,4 +10,4 @@ class WrongCommand(Command):
 
     def execute(self, context):
         """Create an error message."""
-        View.messages.append(View.wrong_command)
+        context.controller.view.messages.append(View.wrong_command)

@@ -1,6 +1,6 @@
 """Main page view."""
 
-from app.commands import BookDetailsCommand
+from app import commands
 
 from .abc import View
 
@@ -16,5 +16,5 @@ class MainPageView(View):
     def display_body(self, books):
         """Display the books."""
         print("Books:")
-        for command, book in zip(BookDetailsCommand.get_choices(), books):
+        for command, book in zip(commands.BookDetailsCommand.get_choices(), books):
             print(command, book.name)

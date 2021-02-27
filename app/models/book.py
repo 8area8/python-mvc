@@ -51,3 +51,7 @@ class Book:
             book.id = id
             books.append(book)
         return books
+
+    def __str__(self):
+        """Return the book details."""
+        return f"id: {self.id}\nname: {self.name}"

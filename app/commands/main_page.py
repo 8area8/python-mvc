@@ -1,14 +1,16 @@
 """Main page command."""
 
 from .abc import Command
-from app.controllers import MainPageController
+from app import controllers
 
 
 class MainPageCommand(Command):
     """Handle the main page navigation."""
 
-    key = "m"
+    key = "main"
+    readable_key = key
+    lang_en = "return to the main page."
 
     def execute(self, context):
         """Go to the main page."""
-        context.controller = MainPageController()
+        context.controller = controllers.MainPageController()

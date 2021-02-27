@@ -11,6 +11,6 @@ class BookDetailsView(View):
         super().__init__(commands)
         self.title = "Book details"
 
-    def display(self, book):
+    def display_body(self, book):
         """Display the book details."""
         print(book)
