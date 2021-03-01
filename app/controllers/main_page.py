@@ -14,9 +14,4 @@ class MainPageController(Controller):
         """Init."""
         super().__init__()
         self.commands.append(BookDetailsCommand)
-        self.view = MainPageView(self.commands)
-
-    def display(self):
-        """Display the main page."""
-        books = Book.list()
-        self.view.display(books=books)
+        self.view = MainPageView(self.commands, Book.list())

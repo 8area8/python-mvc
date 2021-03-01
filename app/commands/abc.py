@@ -9,7 +9,7 @@ class Command(ABC):
 
     key = ""
     readable_key = key
-    lang_en = ""
+    description = ""
 
     def __init__(self, choice: str):
         """Init."""

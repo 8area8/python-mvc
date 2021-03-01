@@ -2,7 +2,7 @@
 
 from app.models import Book
 from app.views import BookDetailsView
-from app.commands import MainPageCommand
+from app.commands import MainPageCommand, DeleteBookCommand
 
 from .abc import Controller
 
@@ -14,9 +14,5 @@ class BookDetailsController(Controller):
         """Init."""
         super().__init__()
         self.book = book
-        self.commands.append(MainPageCommand)
-        self.view = BookDetailsView(self.commands)
-
-    def display(self):
-        """Display the book details."""
-        self.view.display(book=self.book)
+        self.commands.extend([MainPageCommand, DeleteBookCommand])
+        self.view = BookDetailsView(self.commands, book=self.book)

@@ -11,7 +11,7 @@ class BookDetailsCommand(Command):
 
     key = "book-"
     readable_key = "book-<number>"
-    lang_en = "display the book details."
+    description = "display the book details."
 
     def __init__(self, choice: str):
         """Init."""

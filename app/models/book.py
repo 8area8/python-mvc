@@ -38,6 +38,11 @@ class Book:
         else:
             self.books[self.id] = to_dict
 
+    def delete(self):
+        """Delete the book."""
+        if self.id:
+            del self.books[self.id]
+
     @classmethod
     def get(cls, id: int) -> Optional["Book"]:
         """Get a book from the given ID."""
