@@ -14,10 +14,6 @@ class Controller(ABC):
         self.commands = [QuitCommand, BlankCommand]
         self.view: View = View(self.commands)
 
-    def display(self):
-        """Display the view."""
-        self.view.display()
-
     def get_command(self):
         """Get the command."""
         choice = input()
