@@ -24,4 +24,10 @@ python3 main.py # or py -3 main.py on windows
 
 ## Explanations
 
-`coming soon...`
+In terms of dependencies, the `Application` class has access to `views` and `commands`. The `view` knows the `commands`, and the `commands` know the `Application`.
+
+![Global skeleton](doc/mvc-global.png)
+
+The sequencing is simple: the `Application` displays the `view`, and the `view` returns a `command`, and the `command` updates the `Application`.
+
+![Class sequence](doc/mvc-sequence.png)
