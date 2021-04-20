@@ -1,12 +1,11 @@
 """Book details command."""
 
-from app import controllers
 from app.models import Book
 
 from .abc import Command
 
 
-class BookDetailsCommand(Command):
+class BookDetails(Command):
     """Handle the book details command."""
 
     key = "book-"
@@ -25,5 +24,4 @@ class BookDetailsCommand(Command):
 
     def execute(self, context):
         """Go to the book details."""
-        controller = controllers.BookDetailsController
-        context.controller = controller(book=self.book)  # type: ignore
+        context.change_page("book_details", book=self.book)

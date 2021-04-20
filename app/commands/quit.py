@@ -3,7 +3,7 @@
 from .abc import Command
 
 
-class QuitCommand(Command):
+class Quit(Command):
     """Quit command."""
 
     key = "quit"

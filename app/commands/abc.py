@@ -11,7 +11,7 @@ class Command(ABC):
     readable_key = key
     description = ""
 
-    def __init__(self, choice: str):
+    def __init__(self, choice: str = ""):
         """Init."""
         pass
 

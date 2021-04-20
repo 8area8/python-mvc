@@ -1,10 +1,11 @@
 """Main page command."""
 
+from app import models
+
 from .abc import Command
-from app import controllers
 
 
-class MainPageCommand(Command):
+class MainPage(Command):
     """Handle the main page navigation."""
 
     key = "main"
@@ -13,4 +14,4 @@ class MainPageCommand(Command):
 
     def execute(self, context):
         """Go to the main page."""
-        context.controller = controllers.MainPageController()
+        context.change_page("main_page", books=models.Book.list())

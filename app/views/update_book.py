@@ -1,16 +1,21 @@
 """Book uodate page view."""
 
+from app import commands
+
 from .abc import View
 
 
-class BookUpdateView(View):
+class BookUpdate(View):
     """Display the book updates."""
 
-    def __init__(self, commands, book):
+    name = "update_book"
+
+    def __init__(self, book):
         """Init."""
-        super().__init__(commands)
-        self.title = "Book update"
+        super().__init__()
+        self.title = "Book Update"
         self.book = book
+        self.commands += [commands.BookDetails]
 
     def display_body(self):
         """Display the book update."""

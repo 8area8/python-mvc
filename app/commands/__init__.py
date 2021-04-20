@@ -2,9 +2,8 @@
 """Command package."""
 
 from .abc import Command
-from .blank import BlankCommand
-from .quit import QuitCommand
-from .wrong import WrongCommand
-from .book_details import BookDetailsCommand
-from .main_page import MainPageCommand
-from .delete_book import DeleteBookCommand
+from .blank import Blank
+from .quit import Quit
+from .book_details import BookDetails
+from .main_page import MainPage
+from .delete_book import DeleteBook

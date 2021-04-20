@@ -1,12 +1,12 @@
 """Book delete command."""
 
-from app.views import View
+from app import views
 
 from .abc import Command
-from .main_page import MainPageCommand
+from .main_page import MainPage
 
 
-class DeleteBookCommand(Command):
+class DeleteBook(Command):
     """Handle the book deletion."""
 
     key = "delete"
@@ -15,6 +15,6 @@ class DeleteBookCommand(Command):
 
     def execute(self, context):
         """Delete the book and go to the main page."""
-        context.controller.book.delete()
-        MainPageCommand("").execute(context)
-        context.controller.view.messages.append(View.book_deleted)
+        context.view.book.delete()
+        MainPage().execute(context)
+        context.view.messages.append(views.View.book_deleted)

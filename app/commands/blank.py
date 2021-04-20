@@ -3,5 +3,5 @@
 from .abc import Command
 
 
-class BlankCommand(Command):
+class Blank(Command):
     """Blank command."""
