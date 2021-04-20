@@ -10,6 +10,8 @@ class BookUpdate(View):
 
     name = "update_book"
 
+    book_deleted = "The book is deleted !"
+
     def __init__(self, book):
         """Init."""
         super().__init__()

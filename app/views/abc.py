@@ -12,7 +12,6 @@ class View:
     name = "abc"
 
     wrong_command = "'{}' is not a valid command. Please retry."
-    book_deleted = "The book is deleted !"
 
     def __init__(self, *args, **kwargs):
         """Init."""

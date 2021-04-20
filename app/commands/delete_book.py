@@ -17,4 +17,4 @@ class DeleteBook(Command):
         """Delete the book and go to the main page."""
         context.view.book.delete()
         MainPage().execute(context)
-        context.view.messages.append(views.View.book_deleted)
+        context.view.messages.append(views.BookUpdate.book_deleted)
